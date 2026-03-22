@@ -23,9 +23,3 @@ A professional, biometric-based attendance solution designed for faculty members
 * **ProxiScan:** Location-based verification ensuring the user is physically present at the college.
 * **Mobile-First Dashboard:** Fully responsive navigation including a slide-out drawer for mobile devices.
 * **Real-time Logs:** Instant feedback on attendance status (Present, Late, or Absent).
-
-## 🛠️ Installation & Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone [https://github.com/Dhruv26-k/kcp-attendance-system.git](https://github.com/Dhruv26-k/kcp-attendance-system.git)
