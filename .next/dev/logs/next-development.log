@@ -1,3 +1,8 @@
-[00:00:14.980] Server  LOG     ✓ Ready in 9.4s
-[00:00:37.001] Server  LOG     ○ Compiling / ...
-[00:00:39.705] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.361] Server  LOG     ✓ Ready in 11.9s
+[00:00:20.378] Server  LOG     ○ Compiling / ...
+[00:00:38.411] Server  LOG     ○ Compiling /admin/login ...
+[00:00:41.498] Browser WARN    Image with src "/front.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:21.249] Server  LOG     ✓ Compiled in 1608ms
+[00:02:44.969] Browser LOG     ✅ AI Face Models Loaded
+[00:02:44.969] Browser LOG     ✅ AI Face Models Loaded
+[00:05:38.936] Server  LOG     ✓ Compiled in 317ms
