@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, CheckCircle, XCircle, Loader2, Clock, PlaneTakeoff, Trash2, Shield } from "lucide-react";
-import AdminRoute from '@/components/AdminRoute'; // adjust path if needed
+import AdminRoute from '@/components/AdminRoute';
 
 function LeaveManagementContent() {
   const [leaves, setLeaves] = useState([]);
@@ -110,83 +110,93 @@ function LeaveManagementContent() {
   return (
     <div className="min-h-screen bg-[#f8f9fb] flex flex-col font-sans text-slate-800 pb-20">
       
-      <header className="w-full bg-white px-8 py-3 shadow-sm border-b border-slate-200 flex justify-between items-center z-10">
+      {/* Responsive Header */}
+      <header className="w-full bg-white px-4 md:px-8 py-3 shadow-sm border-b border-slate-200 flex flex-wrap items-center justify-between gap-3 z-10">
         <div className="flex items-center">
           <Link href="/admin/dashboard">
-            <Image src="/front.png" alt="main logo" width={200} height={50} className="h-14 w-auto object-contain" />
+            <Image 
+              src="/front.png" 
+              alt="main logo" 
+              width={160} 
+              height={45} 
+              className="h-8 md:h-10 w-auto object-contain" 
+            />
           </Link>
         </div>
-        <Link href="/admin/dashboard" className="flex items-center gap-2 text-slate-500 hover:text-blue-600 font-medium transition-colors bg-slate-50 px-4 py-2 rounded-xl text-sm border border-slate-200">
-          <ArrowLeft size={18} /> Dashboard Home
+        <Link 
+          href="/admin/dashboard" 
+          className="flex items-center gap-1 text-xs md:text-sm text-slate-500 hover:text-blue-600 font-medium transition-colors bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200"
+        >
+          <ArrowLeft size={16} /> <span>Dashboard Home</span>
         </Link>
       </header>
 
-      <main className="max-w-6xl mx-auto w-full p-6 md:p-10">
-        <div className="flex flex-col md:flex-row justify-between items-center mb-10 gap-4">
+      <main className="flex-grow max-w-6xl mx-auto w-full px-4 md:px-6 py-6 md:py-10">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4 mb-8">
           <div className="text-center md:text-left">
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-3 justify-center md:justify-start">
-              <PlaneTakeoff className="text-red-500" /> Leave Requests
+            <h1 className="text-xl md:text-2xl font-bold text-slate-900 tracking-tight flex items-center gap-2 justify-center md:justify-start">
+              <PlaneTakeoff className="text-red-500" size={20} /> Leave Requests
             </h1>
-            <p className="text-slate-500 text-sm mt-1">Pending leave applications from faculty.</p>
+            <p className="text-slate-500 text-xs md:text-sm mt-0.5">Pending leave applications from faculty.</p>
           </div>
-          <div className="bg-red-50 text-red-600 px-6 py-2 rounded-2xl font-bold border border-red-100 shadow-sm">
+          <div className="bg-red-50 text-red-600 px-4 py-1.5 rounded-xl font-bold border border-red-100 shadow-sm text-sm">
             Pending: {leaves.length}
           </div>
         </div>
 
         {isLoading ? (
-          <div className="py-20 text-center flex flex-col items-center">
+          <div className="py-16 text-center flex flex-col items-center">
             <Loader2 className="animate-spin text-red-500 mb-4" size={40} />
             <p className="text-slate-500">Loading leave requests...</p>
           </div>
         ) : leaves.length > 0 ? (
           <div className="space-y-4">
             {leaves.map((leave) => (
-              <div key={leave._id} className="bg-white rounded-3xl p-6 border border-red-100 shadow-md shadow-red-900/5 transition-all hover:border-red-300">
+              <div key={leave._id} className="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 border border-red-100 shadow-md shadow-red-900/5 transition-all hover:border-red-300">
                 <div className="flex flex-col md:flex-row justify-between items-start gap-4">
-                  <div className="flex-1">
-                    <div className="flex items-center gap-3 mb-2 flex-wrap">
-                      <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-xs font-bold uppercase tracking-wider">
+                  <div className="flex-1 w-full">
+                    <div className="flex items-center gap-2 mb-2 flex-wrap">
+                      <span className="px-2 py-1 bg-blue-100 text-blue-700 rounded-full text-[10px] md:text-xs font-bold uppercase tracking-wider">
                         {leave.type}
                       </span>
-                      <span className="text-xs text-slate-400">
+                      <span className="text-[10px] md:text-xs text-slate-400">
                         Applied: {formatDateTime(leave.appliedAt)}
                       </span>
                     </div>
-                    <h3 className="font-bold text-slate-900 text-xl">{leave.faculty.name}</h3>
-                    <p className="text-sm text-slate-500 mb-2">
+                    <h3 className="font-bold text-slate-900 text-base md:text-xl">{leave.faculty.name}</h3>
+                    <p className="text-xs md:text-sm text-slate-500 mb-1">
                       ID: {leave.faculty.facultyId} · {leave.faculty.department}
                     </p>
-                    <p className="text-sm text-slate-700 mb-2">
+                    <p className="text-xs md:text-sm text-slate-700 mb-2">
                       {formatDate(leave.startDate)} – {formatDate(leave.endDate)}
                     </p>
-                    <p className="text-sm text-slate-600 bg-slate-50 p-3 rounded-lg italic border-l-4 border-blue-300">
+                    <p className="text-xs md:text-sm text-slate-600 bg-slate-50 p-2 md:p-3 rounded-lg italic border-l-4 border-blue-300">
                       “{leave.reason}”
                     </p>
                   </div>
-                  <div className="flex gap-2 mt-2 md:mt-0">
+                  <div className="flex flex-wrap gap-2 mt-2 md:mt-0 justify-start md:justify-end">
                     <button
                       onClick={() => handleAction(leave._id, 'approved')}
                       disabled={processingId === leave._id || deletingId === leave._id}
-                      className="flex items-center gap-1 px-4 py-2 bg-green-100 text-green-700 rounded-xl hover:bg-green-200 transition disabled:opacity-50"
+                      className="flex items-center gap-1 px-3 py-1.5 md:px-4 md:py-2 bg-green-100 text-green-700 rounded-xl hover:bg-green-200 transition disabled:opacity-50 text-xs md:text-sm"
                     >
-                      {processingId === leave._id ? <Loader2 className="animate-spin" size={16} /> : <CheckCircle size={16} />}
+                      {processingId === leave._id ? <Loader2 className="animate-spin" size={14} /> : <CheckCircle size={14} />}
                       Approve
                     </button>
                     <button
                       onClick={() => handleAction(leave._id, 'rejected')}
                       disabled={processingId === leave._id || deletingId === leave._id}
-                      className="flex items-center gap-1 px-4 py-2 bg-red-100 text-red-700 rounded-xl hover:bg-red-200 transition disabled:opacity-50"
+                      className="flex items-center gap-1 px-3 py-1.5 md:px-4 md:py-2 bg-red-100 text-red-700 rounded-xl hover:bg-red-200 transition disabled:opacity-50 text-xs md:text-sm"
                     >
-                      <XCircle size={16} /> Reject
+                      <XCircle size={14} /> Reject
                     </button>
                     <button
                       onClick={() => handleDelete(leave._id)}
                       disabled={deletingId === leave._id || processingId === leave._id}
-                      className="flex items-center gap-1 px-4 py-2 bg-red-100 text-red-700 rounded-xl hover:bg-red-200 transition disabled:opacity-50"
+                      className="flex items-center gap-1 px-3 py-1.5 md:px-4 md:py-2 bg-red-100 text-red-700 rounded-xl hover:bg-red-200 transition disabled:opacity-50 text-xs md:text-sm"
                       title="Delete request"
                     >
-                      {deletingId === leave._id ? <Loader2 className="animate-spin" size={16} /> : <Trash2 size={16} />}
+                      {deletingId === leave._id ? <Loader2 className="animate-spin" size={14} /> : <Trash2 size={14} />}
                       Delete
                     </button>
                   </div>
@@ -195,25 +205,28 @@ function LeaveManagementContent() {
             ))}
           </div>
         ) : (
-          <div className="bg-white rounded-[40px] p-24 border border-dashed border-slate-200 text-center flex flex-col items-center">
-            <div className="bg-slate-50 p-6 rounded-full mb-6">
-              <Clock size={48} className="text-slate-200" />
+          <div className="bg-white rounded-2xl p-8 md:p-20 border border-dashed border-slate-200 text-center flex flex-col items-center">
+            <div className="bg-slate-50 p-4 md:p-6 rounded-full mb-4">
+              <Clock size={40} className="text-slate-200" />
             </div>
-            <p className="text-slate-600 font-bold text-xl tracking-tight">No Pending Requests</p>
-            <p className="text-sm text-slate-400 mt-2 max-w-xs mx-auto">
+            <p className="text-slate-600 font-bold text-lg md:text-xl tracking-tight">No Pending Requests</p>
+            <p className="text-xs md:text-sm text-slate-400 mt-2 max-w-xs mx-auto">
               There are no leave applications awaiting your approval.
             </p>
           </div>
         )}
       </main>
-      <footer className="absolute bottom-4 w-full px-8 flex justify-center items-center text-[11px] md:text-xs text-slate-400 font-medium">
-        <div className="flex items-center gap-1.5"><Shield size={14} />Face Recognition Attendance System VisionID</div>
+
+      {/* Footer */}
+      <footer className="absolute bottom-4 w-full px-4 flex justify-center items-center text-[10px] md:text-xs text-slate-400 font-medium">
+        <div className="flex items-center gap-1.5">
+          <Shield size={12} /> Face Recognition Attendance System VisionID
+        </div>
       </footer>
     </div>
   );
 }
 
-// Wrap with AdminRoute to protect the page
 export default function Page() {
   return (
     <AdminRoute>
