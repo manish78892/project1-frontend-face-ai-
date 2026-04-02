@@ -1,8 +1,87 @@
-[00:00:17.361] Server  LOG     ✓ Ready in 11.9s
-[00:00:20.378] Server  LOG     ○ Compiling / ...
-[00:00:38.411] Server  LOG     ○ Compiling /admin/login ...
-[00:00:41.498] Browser WARN    Image with src "/front.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
-[00:01:21.249] Server  LOG     ✓ Compiled in 1608ms
-[00:02:44.969] Browser LOG     ✅ AI Face Models Loaded
-[00:02:44.969] Browser LOG     ✅ AI Face Models Loaded
-[00:05:38.936] Server  LOG     ✓ Compiled in 317ms
+[00:00:15.121] Server  LOG     ✓ Ready in 9.6s
+[00:00:22.262] Server  LOG     ○ Compiling / ...
+[00:00:40.545] Server  LOG     ○ Compiling /admin/login ...
+[00:00:42.700] Browser WARN    Image with src "/front.png" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:01:54.986] Server  LOG     ✓ Compiled in 1589ms
+[00:01:55.104] Browser ERROR   ./src/app/admin/reports/page.js:149:17
+Parsing ecmascript source code failed
+  147 |                     ))}
+  148 |                    </>
+> 149 |                 </thead>
+      |                 ^
+  150 |                 <tbody>
+  151 |                   {report.matrix.map(row => (
+  152 |                     <tr key={row.facultyId} className="border-b border-slate-50 hover:bg-slate-50/50">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/reports/page.js [Client Component Browser]
+    ./src/app/admin/reports/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/reports/page.js [Client Component SSR]
+    ./src/app/admin/reports/page.js [Server Component]
+[00:01:55.104] Browser ERROR   ./src/app/admin/reports/page.js:149:18
+Parsing ecmascript source code failed
+  147 |                     ))}
+  148 |                    </>
+> 149 |                 </thead>
+      |                  ^^^^^^^
+  150 |                 <tbody>
+  151 |                   {report.matrix.map(row => (
+  152 |                     <tr key={row.facultyId} className="border-b border-slate-50 hover:bg-slate-50/50">
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/reports/page.js [Client Component Browser]
+    ./src/app/admin/reports/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/reports/page.js [Client Component SSR]
+    ./src/app/admin/reports/page.js [Server Component]
+[00:03:52.955] Server  LOG     ✓ Compiled in 143ms
+[00:03:53.062] Browser ERROR   ./src/app/admin/reports/page.js:150:17
+Parsing ecmascript source code failed
+  148 |                     ))}
+  149 |                    </>
+> 150 |                 </thead>
+      |                 ^
+  151 |                 <tbody>
+  152 |                   {report.matrix.map(row => (
+  153 |                     <tr key={row.facultyId} className="border-b border-slate-50 hover:bg-slate-50/50">
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/reports/page.js [Client Component Browser]
+    ./src/app/admin/reports/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/reports/page.js [Client Component SSR]
+    ./src/app/admin/reports/page.js [Server Component]
+[00:03:53.063] Browser ERROR   ./src/app/admin/reports/page.js:150:18
+Parsing ecmascript source code failed
+  148 |                     ))}
+  149 |                    </>
+> 150 |                 </thead>
+      |                  ^^^^^^^
+  151 |                 <tbody>
+  152 |                   {report.matrix.map(row => (
+  153 |                     <tr key={row.facultyId} className="border-b border-slate-50 hover:bg-slate-50/50">
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/app/admin/reports/page.js [Client Component Browser]
+    ./src/app/admin/reports/page.js [Server Component]
+
+  Client Component SSR:
+    ./src/app/admin/reports/page.js [Client Component SSR]
+    ./src/app/admin/reports/page.js [Server Component]
+[00:05:18.381] Server  LOG     ✓ Compiled in 127ms
