@@ -78,7 +78,7 @@ export default function HomePage() {
 
       {/* 4. Footer */}
       <footer className="text-center pb-8 pt-4 text-slate-400 text-sm font-medium">
-        Developed by Manish | Dhruv | Aayush
+        Developed by Manish 
       </footer>
       
     </div>
