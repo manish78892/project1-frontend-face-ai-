@@ -1,4 +1,4 @@
-# Khalsa College Patiala (KCP) - Smart Attendance System
+#Smart Attendance System
 
 A professional, biometric-based attendance solution designed for faculty members at Khalsa College Patiala. This system uses facial recognition and geofencing to ensure secure and accurate attendance marking.
 
